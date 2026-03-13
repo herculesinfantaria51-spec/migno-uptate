@@ -1,6 +1,6 @@
 // CONFIGURAÇÃO ESTÁTICA - NÃO MUDA MAIS
-const DB_NAME = "MignoDicengPort09/03/26v-1"; 
-const URL_VERSAO = "https://nomigherreichhub.infinityfreeapp.com/migno-versao.json";
+const DB_NAME = "MignoDicengPort09_03_26v-1"; 
+const URL_VERSAO = "https://raw.githubusercontent.com/herculesinfantaria51-spec/migno-uptate/main/migno-versao.json";
 function mostrar(msg) {
     const display = document.getElementById("resultado");
     if (display) display.textContent = msg;
@@ -103,4 +103,5 @@ function verificarAtualizacaoSilenciosa() {
 
         })
         .catch(() => {});
+
 }
