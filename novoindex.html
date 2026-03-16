@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Premium Apps – Nomighereich Hub</title>
+<link rel="icon" href="favicon.ico" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+:root {
+  --primary: #3b82f6;
+  --secondary: #10b981;
+  --accent: #fbbf24;
+  --background: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --border: rgba(0, 0, 0, 0.05);
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 22px 16px;
+  border-bottom: 4px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 14px var(--shadow);
+}
+header .wrap { max-width: 1200px; margin: auto; text-align: center; }
+header h1 { margin: 0; font-size: 1.8rem; font-weight: 800; letter-spacing: 0.5px; }
+nav { margin-top: 10px; }
+nav a { color: #fff; text-decoration: none; margin: 0 12px; font-weight: 600; font-size: 1rem; opacity: 0.9; transition: opacity 0.2s; }
+nav a:hover { opacity: 1; }
+
+/* HERO */
+.hero {
+  padding: 60px 16px;
+  text-align: center;
+  background: linear-gradient(180deg, #dbeafe 0%, var(--background) 100%);
+}
+.hero h2 {
+  font-size: 2.1rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+.hero p {
+  margin-bottom: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* BUTTONS */
+.btn { 
+  display: inline-block; 
+  background: var(--primary); 
+  color: #fff; 
+  padding: 10px 18px; 
+  border-radius: 10px; 
+  text-decoration: none; 
+  font-weight: 700; 
+  transition: 0.15s ease; 
+}
+.btn:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 16px rgba(59,130,246,0.25); 
+}
+.btn-secondary { 
+  background: var(--secondary); 
+  box-shadow: 0 6px 16px rgba(16,185,129,0.25); 
+}
+
+/* APPS GRID */
+.apps-section { 
+  max-width: 1200px; 
+  margin: 40px auto; 
+  padding: 0 16px 16px; 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+  gap: 24px; 
+}
+.app-card { 
+  background: var(--card-bg); 
+  border-radius: 16px; 
+  padding: 20px; 
+  box-shadow: 0 8px 22px var(--shadow); 
+  text-align: center; 
+  display: flex; 
+  flex-direction: column; 
+  min-height: 360px; 
+  transition: transform 0.2s ease; 
+  border: 1px solid var(--border); 
+}
+.app-cardYellow { 
+  background: var(--accent); 
+  border-radius: 16px; 
+  padding: 20px; 
+  box-shadow: 0 8px 22px var(--shadow); 
+  text-align: center; 
+  display: flex; 
+  flex-direction: column; 
+  min-height: 360px; 
+  transition: transform 0.2s ease; 
+}
+.app-card:hover { transform: translateY(-4px); }
+.app-card img { width: 120px; height: 120px; border-radius: 18px; object-fit: cover; border: 1px solid var(--border); margin-bottom: 14px; }
+.app-card h3 { margin: 6px 0; font-size: 1.25rem; font-weight: 700; }
+.app-card p { font-size: 0.95rem; color: var(--text-secondary); margin: 8px 0 18px; }
+.card-actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+/* ROTINÁRIO + ADS */
+.rotinario-ads-wrapper { grid-column: 1 / -1; display: flex; gap: 20px; align-items: flex-start; width: 100%; }
+.rotinario-ads-wrapper .app-card { flex: 1; }
+.ads-lateral { flex: 0 0 300px; display: flex; flex-direction: column; gap: 14px; }
+.ad-box { background: var(--card-bg); border-radius: 14px; padding: 12px; box-shadow: 0 6px 18px var(--shadow); border: 2px dashed #93c5fd; min-height: 120px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-primary); font-size: 0.95rem; }
+
+/* MOBILE */
+@media (max-width: 760px) {
+  .hero h2 { font-size: 1.7rem; }
+  .hero p { font-size: 1rem; }
+  nav a { margin: 0 6px; font-size: 0.9rem; }
+  .apps-section { grid-template-columns: 1fr; }
+  .app-card { min-height: auto; }
+  .rotinario-ads-wrapper { flex-direction: column; }
+  .ads-lateral { width: 100%; flex-direction: column; }
+  .ad-box { min-height: 100px; }
+  header h1 { font-size: 1.4rem; }
+  body { padding-bottom: 40px; }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #60a5fa;
+    --secondary: #34d399;
+    --accent: #fcd34d;
+    --background: #1f2937;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --card-bg: #374151;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --border: rgba(255, 255, 255, 0.1);
+  }
+  .hero { background: linear-gradient(180deg, #1e40af 0%, var(--background) 100%); }
+  .ad-box { border: 2px dashed #60a5fa; }
+}
+
+footer { margin-top: 40px; background: var(--primary); color: #fff; text-align: center; padding: 24px 16px; }
+footer a { color: #fff; text-decoration: underline; }
+
+.features {
+  max-width: 900px;
+  margin: 3px auto 12px;
+  padding: 0 20px;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.features li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 26px;
+}
+
+.top-video-showcase {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mini-phone {
+    flex: 0 0 130px;
+    height: 240px;
+    background: #000;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 3px solid #333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-right: 22px;
+    margin-bottom: 60px;
+}
+
+.mini-phone video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .top-video-showcase { gap: 10px; }
+    .mini-phone { flex: 0 0 145px; height: 260px; }
+}
+
+.features li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+
+.features p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 14px;
+}
+
+.updates-bar {
+  background: #fff8e1;
+  border-bottom: 2px solid #fbbf24;
+  padding: 20px 16px;
+}
+
+.updates-wrap { max-width: 1100px; margin: auto; }
+
+.updates-bar h3 { margin-top: 0; margin-bottom: 15px; font-size: 1.2rem; }
+
+.update-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+}
+
+.btn-update {
+  background: #fbbf24;
+  color: #222;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width:760px){
+  .features{ margin: 30px auto 0; }
+  .features ul{ font-size: 1rem; }
+}
+
+/* Corrigido botão de download como link */
+.btn-download {
+  display: inline-block;
+  background: #10b981;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+  transition: 0.15s ease;
+}
+.btn-download:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(16,185,129,0.3);
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <h1>Nomighereich - Apps Hub</h1>
+    <nav>
+      <p>Apps</p>
+      <p>Downloads</p>
+      <a style="color: #03388e; cursor: pointer;" href="PrivacyPolicy.html" onclick="showPage('privacyPage')">Privacy Policy</a>
+      <a style="color: #03388e; cursor: pointer;" href="contacty.html" onclick="showPage('contactPage')">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h2>Your learning universe in one place</h2>
+  <p>Download the apps, study offline, and enjoy a smooth learning experience.</p>
+</section>
+
+<div class="top-video-showcase">
+  <div class="mini-phone">
+    <video autoplay loop muted playsinline>
+      <source src="https://www.dropbox.com/scl/fi/94a4x159kqxtd1y14eq5m/15videoinglesalemaorev.mp4?rlkey=8yktcnhzdv4yoj16to98elidt&st=p8x82egb&raw=1" type="video/mp4">
+    </video>
+  </div>
+  <div class="mini-phone">
+    <video autoplay loop muted playsinline>
+      <source src="https://www.dropbox.com/scl/fi/a944e10rogsl1gpkj66l8/2video.dicvenda.espanoIngles.mp4?rlkey=15o5up0lossu9wmjmpd8zv3vz&st=3jwhlwnz&raw=1" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<section class="features">
+  <ul>
+    <li>Dictionaries carefully organized for quick and reliable searches</li>
+    <li>Productivity apps designed to support your daily routine</li>
+    <li>Flashcards that help strengthen memory and accelerate learning</li>
+  </ul>
+
+  <p><strong>Notice:</strong> Our apps are continuously updated with new words and features.</p>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="downloads/dictio/3dicvenda_engport.debug.apk" download class="btn-download">
+      Baixar APK (TESTE) 📲
+    </a>
+  </div>
+</section>
+
+<section class="apps-section" id="apps">
+  <article class="app-cardYellow">
+    <img src="downloads/reversible.png" alt="FlashCards Reversible">
+    <h3>Play FlashCards (Reversible)</h3>
+    <p>Master both directions with enhanced reversible flashcards — faster recall, sharper memory, and a smoother study flow.</p>
+    <div class="card-actions">
+      <a class="btn" style="background:gold;color:#222;" href="reversiblepremium.html">Reversible Premium</a>
+    </div>
+  </article>
+
+  <article class="app-cardYellow">
+    <img src="downloads/192x192 (2).png" alt="Rotinario">
+    <h3>Rotinário</h3>
+    <p>Rotinário helps you organize your daily routine simply and efficiently. Plan your tasks, stay focused, and build better habits every day.</p>
+    <a class="btn" style="background:gold;color:#222;" href="rotinarios.html">Rotinário</a>
+  </article>
+
+  <div class="app-cardYellow">Ad 1</div>
+
+  <article class="app-cardYellow">
+    <img src="downloads/non_reversible.png" alt="Flashcard Non-Reversible">
+    <h3>FlashCards <small>Non-reversible</small></h3>
+    <p>Non-Reversible is a flashcard app focused on real learning, designed for those who want to memorize, not just refer to information.</p>
+    <a class="btn" style="background:gold;color:#222;" href="non_reversible.html">Non Reversible Premium</a>
+  </article>
+
+  <article class="app-cardYellow">
+    <img src="downloads/icon_192x192.png" alt="Rotinario Study">
+    <h3>Rotinário Study</h3>
+    <p>Rotinário Study helps you organize your study routine with clarity and focus. Set study days, choose subjects, and stay consistent with your learning goals.</p>
+    <a class="btn" style="background:gold;color:#222;" href="rotinarios.html">Rotinário Study</a>
+  </article>
+
+  <div class="app-card">Ad 2</div>
+
+  <article class="app-cardYellow">
+    <img src="downloads/corujinha3000.png" alt="Dictionary">
+    <h3>Dictionary</h3>
+    <p>"The perfect tool for polyglots and serious language learners"</p>
+    <p>High-performance offline dictionary, fully editable.<br>Manage words, translations, and examples with speed and security.<br>Continuously expand your vocabulary with locally stored data and instant access to your content.</p>
+    <a class="btn" style="background:gold;color:#222;" href="dictionaryPremium.html">Premium Dictionaries</a>
+  </article>
+
+  <article class="app-cardYellow">
+    <img src="downloads/192x192.png" alt="Rotinario Fit">
+    <h3>Rotinário Fit</h3>
+    <p>Rotinário Fit helps you plan and organize your workout routine. Create custom training series, define exercises and workout days, and stay consistent with your fitness goals.</p>
+    <a class="btn" style="background:gold;color:#222;" href="rotinarios.html">Rotinário Fit</a>
+  </article>
+</section>
+
+<div class="ad-box">Ad 3</div>
+
+<footer>
+  <p>&copy; 2022 NoMighereich.Dev</p>
+  <p>
+    <a href="PrivacyPolicy.html">Privacy Policy</a> ||
+    <a href="terms.html">Terms of Service</a> ||
+    <a href="refunds.html">Refund Policy</a> ||
+    <a href="contacty.html">Contact</a>
+  </p>
+  <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">
+    All app payments are processed securely via Stripe. Digital products are delivered immediately after payment.
+  </p>
+</footer>
+</body>
+</html>
